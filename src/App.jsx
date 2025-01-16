@@ -1,3 +1,4 @@
+import CountriesList from "./Components/CountriesList"
 import FilterAndSearch from "./Components/FilterAndSearch"
 import Header from "./Components/Header"
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Header />
       <FilterAndSearch />
+      <CountriesList />
     </>
   )
 }
