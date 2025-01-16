@@ -11,14 +11,14 @@ export default function ThemeSwitcher() {
     }
 
     return (
-        <div className=" flex items-center justify-between w-14 h-8 bg-myDark dark:bg-[#111827] rounded-full p-[5px]">
-            <button onClick={() => toggleTheme("light")} className='w-5 h-5 rounded-full bg-myWhite dark:bg-[#111827] flex items-center justify-center transition-colors duration-300'>
+        <div className=" flex items-center justify-between w-12 md:w-14 h-6 md:h-8 bg-gray-800 dark:bg-gray-900 rounded-full p-[5px]">
+            <button onClick={() => toggleTheme("light")} className='w-4 h-4 md:w-5 md:h-5 rounded-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center transition-colors duration-300'>
                 <svg
                     width="13"
                     height="13"
                     viewBox="0 0 14 13"
                     xmlns="http://www.w3.org/2000/svg"
-                    className='fill-myDark dark:fill-myWhite transition-colors duration-300'
+                    className='fill-gray-800 dark:fill-gray-50 transition-colors duration-300'
                 >
                     <path
                         d="M7.29396 10.5089C9.50822 10.5089 11.3032 8.71388 11.3032 6.49961C11.3032 4.28535 9.50822 2.49033 7.29396 2.49033C5.07969 2.49033 3.28467 4.28535 3.28467 6.49961C3.28467 8.71388 5.07969 10.5089 7.29396 10.5089Z"
@@ -49,12 +49,12 @@ export default function ThemeSwitcher() {
                     />
                 </svg>
             </button>
-            <button onClick={() => toggleTheme('dark')} className='w-5 h-5 rounded-full flex items-center justify-center  dark:bg-myWhite transition-colors duration-300'>
+            <button onClick={() => toggleTheme('dark')} className='w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center  dark:bg-gray-50 transition-colors duration-300'>
                 <svg
                     width="13"
                     height="13"
                     viewBox="0 0 12 12"
-                    className="fill-myWhite dark:fill-myDark transition-colors duration-300"
+                    className="w-2 h-2 md:w-3 md:h-3 fill-gray-50 dark:fill-gray-800 transition-colors duration-300"
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path

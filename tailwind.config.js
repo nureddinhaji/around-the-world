@@ -7,10 +7,8 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        myWhite: "#F9FAFB",
-        myGray: "#F3F4F6",
-        myDark: "#1F2937",
+      boxShadow: {
+        myShadow: '0px 2px 9px 0px #0000000E',
       }
     },
   },
