@@ -1,38 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
 import Loader from "./Loader";
+import CountriesContext from "../Context/CountriesContext";
 
 export default function CountriesList() {
 
-    const initialCountries = JSON.parse(localStorage.getItem("countries")) || [];
-
-    const [countries, setCountries] = useState(initialCountries);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(false);
-
-    // Save data to local storage
-    useEffect(() => {
-        localStorage.setItem("countries", JSON.stringify(countries));
-      }, [countries]);
-
-    // Fetch Contries List
-    useEffect(() => {
-      if (initialCountries.length > 0) {
-        return;
-      }
-      setIsLoading(true)
-        fetch("https://restcountries.com/v3.1/all")
-          .then((response) => response.json())
-          .then((data) => {
-            setCountries(data);
-          })
-          .catch(() => {
-            setIsError(true)
-          })
-          .finally(() => {
-            setIsLoading(false)
-          })
-      }, []);
+    const {countries, isLoading, isError} = useContext(CountriesContext);
 
   return (
     <div className={`container ${isLoading || isError ? "flex items-center justify-center h-[calc(100vh-4rem)]" : "grid gap-16 grid-cols-[repeat(auto-fill,minmax(264px,1fr))] justify-items-center mt-12" }`}>

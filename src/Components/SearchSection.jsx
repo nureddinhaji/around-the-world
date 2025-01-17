@@ -1,6 +1,24 @@
+import { useContext, useState } from "react";
+import CountriesContext from "../Context/CountriesContext";
+
 export default function SearchSection() {
+
+  const {setCountries} = useContext(CountriesContext);
+  const [searchValue, setSearchValue] = useState("");
+
+  function handleSearch(e) {
+    setSearchValue(e.target.value);
+    const allCountries = JSON.parse(localStorage.getItem("countries"));
+    const filteredCountries = allCountries.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()));
+    setCountries(filteredCountries);
+  }
+
+  function preventSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
-    <form className="flex h-14 w-[480px] max-w-full overflow-hidden rounded-full bg-gray-50 shadow-myShadow dark:bg-gray-800">
+    <form onSubmit={preventSubmit} className="flex h-14 w-[480px] max-w-full overflow-hidden rounded-full bg-gray-50 shadow-myShadow dark:bg-gray-800">
       <button className="pe-3 ps-8">
         <svg
           width="18"
@@ -25,6 +43,8 @@ export default function SearchSection() {
         type="search"
         name=""
         id=""
+        onChange={handleSearch}
+        value={searchValue}
       />
     </form>
   );
