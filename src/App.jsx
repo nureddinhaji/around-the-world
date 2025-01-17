@@ -3,8 +3,8 @@ import FilterAndSearch from "./Components/FilterAndSearch"
 import Header from "./Components/Header"
 import  {CountriesProvider} from "./Context/CountriesContext"
 
-function App() {
 
+function App() {
   return (
       <CountriesProvider>
       <Header />

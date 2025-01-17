@@ -7,7 +7,9 @@ export default CountriesContext;
 export function CountriesProvider({ children }) {
   const initialCountries = JSON.parse(localStorage.getItem("countries")) || [];
 
-  const [countries, setCountries] = useState(initialCountries);
+  const [allCountries, setAllCountries  ] = useState(initialCountries);
+  const [filteredCountries, setFilteredCountries] = useState(initialCountries);
+
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -21,7 +23,8 @@ export function CountriesProvider({ children }) {
     fetch("https://restcountries.com/v3.1/all")
       .then((response) => response.json())
       .then((data) => {
-        setCountries(data);
+        setAllCountries(data);
+        setFilteredCountries(data);
         localStorage.setItem("countries", JSON.stringify(data));
       })
       .catch(() => {
@@ -33,6 +36,6 @@ export function CountriesProvider({ children }) {
   }, []);
 
   return (
-    <CountriesContext.Provider value={{ countries, isLoading, isError, setCountries }}>{children}</CountriesContext.Provider>
+    <CountriesContext.Provider value={{ allCountries, setAllCountries, filteredCountries, setFilteredCountries, isLoading, isError }}>{children}</CountriesContext.Provider>
   );
 }

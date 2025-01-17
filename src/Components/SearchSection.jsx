@@ -3,14 +3,14 @@ import CountriesContext from "../Context/CountriesContext";
 
 export default function SearchSection() {
 
-  const {setCountries} = useContext(CountriesContext);
+  const {setFilteredCountries} = useContext(CountriesContext);
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearch(e) {
     setSearchValue(e.target.value);
     const allCountries = JSON.parse(localStorage.getItem("countries"));
     const filteredCountries = allCountries.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()));
-    setCountries(filteredCountries);
+    setFilteredCountries(filteredCountries);
   }
 
   function preventSubmit(e) {

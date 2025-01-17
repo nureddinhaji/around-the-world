@@ -4,7 +4,7 @@ import CountriesContext from "../Context/CountriesContext";
 export default function FilterSection() {
   const [filterValue, setFilterValue] = useState("All Regions");
   const [showFilter, setShowFilter] = useState(false);
-  const { setCountries } = useContext(CountriesContext);
+  const { allCountries, setFilteredCountries } = useContext(CountriesContext);
 
   function toggleFilter() {
     setShowFilter(!showFilter);
@@ -15,7 +15,6 @@ export default function FilterSection() {
     e.preventDefault();
     setFilterValue(filterValue);
     setShowFilter(false);
-    const allCountries = JSON.parse(localStorage.getItem("countries"));
     let filteredCountries = [];
     if(filterValue === "Africa") {
       filteredCountries = allCountries.filter((country) => country.region === "Africa");
@@ -30,7 +29,7 @@ export default function FilterSection() {
     } else {
       filteredCountries = allCountries;
     }
-    setCountries(filteredCountries);
+    setFilteredCountries(filteredCountries);
   }
 
   return (
