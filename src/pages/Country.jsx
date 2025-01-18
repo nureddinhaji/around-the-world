@@ -32,7 +32,9 @@ export default function Country() {
                     <ul className='space-y-2'>
                         <li className="space-x-1"><span className="font-semibold">Top Level Domain:</span><span className="font-light">{countryData.tld[0]}</span></li>
                         <li className="space-x-1"><span className="font-semibold">Currencies:</span><span className="font-light">{countryData.currencies[Object.keys(countryData.currencies)[0]].name}</span></li>
-                        <li className="space-x-1"><span className="font-semibold">Languages:</span><span className="font-light">{Object.values(countryData.languages).map((lang) => lang)}</span></li>
+                        <li className="space-x-1"><span className="font-semibold">Languages:</span><span className="font-light">{Object.values(countryData.languages).map((lang, index) => {
+                            return index === Object.values(countryData.languages).length - 1 ? lang : lang + ', ';
+                        })}</span></li>
                     </ul>
                     </div>
                 </div>
