@@ -9,7 +9,7 @@ export default function CountriesList() {
     const {filteredCountries, isLoading, isError} = useContext(CountriesContext);
 
   return (
-    <div className={`container ${isLoading || isError || filteredCountries.length === 0 ? "flex items-center justify-center h-[calc(100vh-4rem)]" : "grid gap-16 grid-cols-[repeat(auto-fill,minmax(264px,1fr))] justify-items-center mt-12" }`}>
+    <div className={`container pb-10 ${isLoading || isError || filteredCountries.length === 0 ? "flex items-center justify-center h-[calc(100vh-4rem)]" : "grid gap-16 grid-cols-[repeat(auto-fill,minmax(264px,1fr))] justify-items-center mt-12" }`}>
       {isLoading ? (
           <Loader />
       ) : isError ? (

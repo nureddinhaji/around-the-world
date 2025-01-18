@@ -19,6 +19,15 @@ export default {
     extend: {
       boxShadow: {
         myShadow: '0px 2px 9px 0px #0000000E',
+      },
+      keyframes: {
+        'bounce-x' : {
+          '0%, 100%': {transform: 'translateX(0)'},
+          '50%': {transform: 'translateX(-5px)'},
+        }
+      },
+      animation: {
+        'bounce-x': 'bounce-x 1s ease-in-out infinite'
       }
     },
   },

@@ -1,6 +1,6 @@
 export default function EmptySearch() {
     return (
-        <div className="container flex flex-col items-center dark:text-gray-100">
+        <div className="flex flex-col items-center dark:text-gray-100">
             <svg width="416" height="344" viewBox="0 0 416 344" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M160.38 195.732C159.562 202.436 153.459 207.204 146.755 206.386C140.048 205.564 135.283 199.464 136.101 192.76C136.92 186.056 143.023 181.288 149.727 182.107C156.431 182.925 161.199 189.028 160.38 195.732Z" fill="#E2E2E2"/>
 <path d="M262.777 160.733C262.777 160.733 245.555 152.491 227.187 152.344C208.82 152.197 191.468 160.162 191.468 160.162" className="stroke-gray-800 dark:stroke-gray-50" strokeWidth="7"/>
